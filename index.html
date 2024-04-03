@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EB BILL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="input">
+        <h2>EB bill</h2>
+        <input type="number" id="unit" placeholder="Enter unit"><br>
+        <button id="btn" onclick="cal()">Calculate</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function cal() {
+            let unit = document.getElementById("unit");
+            let result = document.getElementById("result");
+            let bill = 0;
+            if (unit.value <= 50) {
+                bill = unit.value * 0.75;
+            } else if (unit.value <= 150) {
+                bill = 50 * 0.75 + (unit.value - 50) * 1;
+            } else if (unit.value <= 250) {
+                bill = 50 * 0.75 + 100 * 1 + (unit.value - 150) * 1.30;
+            } else {
+                bill = 50 * 0.75 + 100 * 1 + 100 * 1.30 + (unit.value - 250) * 1.50;
+            }
+            result.innerHTML = "Your Bill is " + bill;
+        }
+    </script>
+</body>
+</html>
